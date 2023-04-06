@@ -18,7 +18,7 @@ body {
 }
 body {
   background-color: #0a0a0a;
-  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0697d7b7-e439-499c-9bfa-d8144c8718aa/df956t9-bdcdf484-f14f-455a-a6fe-2fbfbcb674f2.png/v1/fill/w_1920,h_840,q_80,strp/m1rr0rc1ty_by_cha5yn_df956t9-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA2OTdkN2I3LWU0MzktNDk5Yy05YmZhLWQ4MTQ0Yzg3MThhYVwvZGY5NTZ0OS1iZGNkZjQ4NC1mMTRmLTQ1NWEtYTZmZS0yZmJmYmNiNjc0ZjIucG5nIiwiaGVpZ2h0IjoiPD04NDAiLCJ3aWR0aCI6Ijw9MTkyMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC8wNjk3ZDdiNy1lNDM5LTQ5OWMtOWJmYS1kODE0NGM4NzE4YWFcL2NoYTV5bi00LnBuZyIsIm9wYWNpdHkiOjk1LCJwcm9wb3J0aW9ucyI6MC40NSwiZ3Jhdml0eSI6ImNlbnRlciJ9fQ.co4g7UWiyn3yfEXMiOnAR9Ls_1RBkzUbaA8qrXakYkU");
+  /* background-image: url("../Inexia/images/2021-11-14+23_19_12++0000.gif"); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -36,13 +36,46 @@ a:hover {
 
 ul {
   list-style: none;
+  text-align: center;
+  
+}
+h2{
+  color: #ff00cc;
+  /* margin-left: 2%; */
 }
 
+/* .back_vdo{
+  background: url("../Inexia/images/backvdo.mp4");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto auto;
+} */
+/* @media (max-width: 750px) { */
+  /* #background-video { display: none; }
+  body {
+    background: url("../Inexia/images/backvdo.mp4") no-repeat;
+    background-size: cover;
+  } */
+  .back_vdo{
+    /* background-image: url("../Inexia/images/backvdo_AdobeExpress.gif"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto auto;
+    padding-top: -20px;
+  }
+/* } */
+
+/* ------------------------------------cointaner---------------------------------- */
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: -10px 20px;
+  /* padding: 16px; */
+  color: #aa15cf;
+  display:flex ;
+  justify-content: space-between;
 }
+
 
 /* Header */
 header {
@@ -52,6 +85,8 @@ header {
   width: 100%;
   padding: 20px;
   z-index: 9999;
+  /* margin: auto; */
+  margin-bottom: -600px;
 }
 
 nav {
@@ -60,8 +95,8 @@ nav {
   align-items: center;
 }
 nav {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  /* background-color: rgba(0, 0, 0, 0.636); */
+  backdrop-filter: blur(80px);
 }
 
 nav ul li a {
@@ -93,13 +128,18 @@ nav a {
 }
 
 /* Hero section */
+.canvas-container{
+  margin-top: -150px;
+}
+
 #hero {
   position: relative;
-  height: 100vh;
+  height: 110vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin-top: -150px;
 }
 
 #hero-canvas {
@@ -109,10 +149,13 @@ nav a {
   width: 100%;
   height: 100%;
   z-index: -1;
+  margin-top: -50px;
 }
 
 .hero-content {
   text-align: center;
+  /* margin-left: -100%; */
+  margin-top:-550px;
 }
 
 .hero-content h1 {
@@ -130,9 +173,10 @@ nav a {
 }
 
 .btn {
+  margin-top: 650px;
   display: inline-block;
   padding: 15px 30px;
-  border: 2px solid #cc00ff;
+  border: 2px solid #aa15cf;
   border-radius: 50px;
   font-size: 1.2rem;
   font-weight: 500;
@@ -141,9 +185,17 @@ nav a {
   transition: all 0.3s ease-in-out;
 }
 
-.btn:hover {
-  background-color: #cc00ff;
+.hero-content .btn:hover {
+  color: #d01a9a;
+  box-shadow: inset 15px 0 0 0 #ffffff;
 }
+video{
+  pointer-events: none;
+}
+
+/* .btn:hover {
+  background-color: #cc00ff;
+} */
 
 /* Features section */
 .features-section {
@@ -227,7 +279,7 @@ nav a {
   text-align: center;
   margin-bottom: 50px;
   text-shadow: 0 0 10px rgba(204, 0, 255, 0.5);
-  color: #fff;
+  color: #ee89d8;
 }
 
 .community-section p {
@@ -250,7 +302,7 @@ nav a {
   text-align: center;
   margin-bottom: 50px;
   text-shadow: 0 0 10px rgba(204, 0, 255, 0.5);
-  color: #fff;
+  color: #ee89d8;
 }
 
 .technology-section p {
@@ -273,7 +325,7 @@ nav a {
   text-align: center;
   margin-bottom: 50px;
   text-shadow: 0 0 10px rgba(204, 0, 255, 0.5);
-  color: #fff;
+  color: #ee89d8;
 }
 
 .signup-section p {
@@ -286,7 +338,7 @@ nav a {
 }
 
 .signup-btn {
-  display: inline-block;
+  /* display: inline-block; */
   background-color: #ff00cc;
   color: #fff;
   font-size: 1.5rem;
@@ -297,6 +349,7 @@ nav a {
   border-radius: 50px;
   box-shadow: 0 0 10px rgba(204, 0, 255, 0.8);
   transition: all 0.3s ease-in-out;
+  margin-left: 45%;
 }
 
 .signup-btn:hover {
@@ -357,6 +410,7 @@ footer p {
   .signup-btn {
     font-size: 1.2rem;
     padding: 12px 32px;
+    
   }
 }
 
@@ -389,6 +443,8 @@ footer p {
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    /* margin: 100px; */
+    
   }
 
   .signup-btn:hover {
@@ -397,3 +453,10 @@ footer p {
     box-shadow: 0 0 10px rgba(204, 0, 255, 0.5);
   }
 }
+
+/* ----------logo---------- */
+#logo_img{
+  width: 60px;
+  height: 60px;
+}
+
