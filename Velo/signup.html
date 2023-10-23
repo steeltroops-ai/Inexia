@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valorant</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html">Home</a>
+          <a href="agents.html">Agents</a>
+          <a href="specs.html">Specs</a>
+          <a href="signup.html">Signup</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="signupWrapper">
+      <div class="accountIntro">
+        <h1>Create an account</h1>
+      </div>
+      <div class="formBlock">
+        <form action="signup.php">
+          <div class="emailIntro">
+            <h1>What's your email?</h1>
+          </div>
+
+          <div class="email">
+            <label for="email"></label>
+            <input type="text" id="email" placeholder="EMAIL" />
+          </div>
+
+          <div class="newsletter">
+            <input type="checkbox" id="newsletter" />
+            <label for="newsletter"
+              >Receive occasional news and special offers from Riot Games</label
+            >
+          </div>
+
+          <div class="ageIntro">
+            <h1>When were you born?</h1>
+            <p>Let's find out how old you are.</p>
+          </div>
+
+          <div class="age">
+            <label for="dayOfBirth">Day</label>
+            <select name="dayOfBirth" id="dayOfBirth">
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+            </select>
+
+            <label for="monthOfBirth">Month</label>
+            <select name="monthOfBirth" id="monthOfBirth">
+              <option value="january">01</option>
+              <option value="february">02</option>
+              <option value="march">03</option>
+              <option value="april">04</option>
+              <option value="may">05</option>
+            </select>
+
+            <label for="yearOfBirth">Year</label>
+            <select name="yearOfBirth" id="yearOfBirth">
+              <option value="1995">1995</option>
+              <option value="1996">1996</option>
+              <option value="1997">1997</option>
+              <option value="1998">1998</option>
+              <option value="1999">1999</option>
+            </select>
+          </div>
+
+          <div class="usernameIntro">
+            <h1>Choose a username</h1>
+            <p>Used for sign in to all our games.</p>
+          </div>
+
+          <div class="username">
+            <label for="username"></label>
+            <input type="text" id="username" placeholder="USERNAME" />
+          </div>
+
+          <div class="passwordIntro">
+            <h1>Choose a password</h1>
+            <p>Make sure it's a good one.</p>
+          </div>
+
+          <div class="password">
+            <label for="password"></label>
+            <input type="password" id="password" placeholder="PASSWORD" />
+          </div>
+
+          <div class="passwordCheck">
+            <label for="passwordCheck"></label>
+            <input
+              type="password"
+              id="passwordCheck"
+              placeholder="CONFIRM PASSWORD"
+            />
+          </div>
+
+          <div class="submit">
+            <input type="submit" value="Sign up" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <footer>
+      <p>
+        &copy; 2020 Riot games, inc, riot games, <span>valorant</span>, and any
+        associated logos are trademarks, service marks, and/or registered
+        trademarks of riot games, inc.
+      </p>
+    </footer>
+  </body>
+</html>
