@@ -7,7 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 
 type NavLink = {
   id: string;
@@ -121,28 +121,27 @@ export default function Navigation({
       [
         "fixed left-1/2 z-50 -translate-x-1/2",
         "top-4 sm:top-6",
-        "w-[min(100%-16px,1120px)]", // Improved max width and spacing
-        "rounded-2xl", // Increased border radius for modern look
+        "w-[min(100%-1rem,1100px)]",
+        "rounded-[1.25rem]",
         "backdrop-blur-xl",
-        "bg-primary/80", // Slightly more opaque for better contrast
-        "border border-white/15", // Better border visibility
-        "transition-all duration-300 ease-out",
+        "bg-primary/70", // glassy dark surface
+        "border",
+        "border-white/10",
+        "transition-all duration-300",
         elevated
-          ? "shadow-[0_16px_40px_-12px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.05)]"
-          : "shadow-[0_8px_24px_-8px_rgba(0,0,0,0.4)]",
+          ? "shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]"
+          : "shadow-[0_6px_20px_-12px_rgba(0,0,0,0.4)]",
         elevated ? "ring-1 ring-white/10" : "ring-0",
-        "px-4 sm:px-6", // Better padding using 8px grid
-        "py-3", // Consistent vertical padding
+        "px-3 sm:px-4",
       ].join(" "),
     [elevated]
   );
 
   const linkBase =
-    "relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold tracking-tight transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[var(--accent)] hover:text-[var(--accent)]";
-  const linkInactive =
-    "text-white/85 hover:bg-white/8 hover:text-white hover:scale-[1.02]";
+    "relative inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[var(--accent)] hover:text-[var(--accent)]";
+  const linkInactive = "text-[var(--primary-foreground)]/80 hover:bg-white/5";
   const linkActive =
-    "text-[var(--accent)] bg-white/10 shadow-[0_0_20px_rgba(139,92,246,0.3)] before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-r before:from-[var(--accent)]/10 before:to-transparent before:opacity-50";
+    "text-[var(--accent)] bg-white/5 before:absolute before:inset-0 before:rounded-lg before:shadow-[0_0_20px_2px] before:shadow-[color:var(--accent)]/40";
 
   return (
     <nav
@@ -154,14 +153,14 @@ export default function Navigation({
         <div className="flex items-center justify-between gap-2">
           <button
             type="button"
-            className="group flex items-center gap-2 rounded-xl px-3 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] transition-all duration-200 hover:scale-105 active:scale-95"
+            className="group flex items-center gap-2 rounded-xl px-2 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
             aria-label={`${logoLabel} home`}
             onClick={() => {
               if (typeof window !== "undefined")
                 window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <span className="font-heading text-lg sm:text-xl font-bold leading-none tracking-tight bg-gradient-to-r from-[#c084fc] via-[#8b5cf6] to-[#7c3aed] bg-clip-text text-transparent drop-shadow-sm">
+            <span className="font-heading text-base sm:text-lg leading-none tracking-tight bg-gradient-to-r from-[#c084fc] via-[#8b5cf6] to-[#7c3aed] bg-clip-text text-transparent">
               {logoLabel}
             </span>
           </button>
@@ -192,24 +191,19 @@ export default function Navigation({
           <div className="md:hidden">
             <button
               type="button"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-label="Open menu"
               aria-expanded={menuOpen}
               aria-controls="mobile-nav-overlay"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/8 ring-1 ring-white/15 text-white/90 transition-all duration-200 hover:bg-white/15 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10 text-[var(--primary-foreground)]/90 transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
               onClick={() => setMenuOpen((v) => !v)}
             >
-              <Menu
-                className={`h-5 w-5 transition-transform duration-200 ${
-                  menuOpen ? "rotate-90" : "rotate-0"
-                }`}
-                aria-hidden="true"
-              />
+              <Menu className="h-5 w-5" aria-hidden="true" />
             </button>
           </div>
         </div>
 
         {/* Subtle Glow Border */}
-        <div className="pointer-events-none absolute inset-0 -z-10 rounded-2xl shadow-[0_0_60px_8px] shadow-[rgba(255,255,255,0.06)]" />
+        <div className="pointer-events-none absolute inset-0 -z-10 rounded-[1.25rem] shadow-[0_0_60px_8px] shadow-[rgba(255,255,255,0.04)]" />
       </div>
 
       {/* Full-screen mobile overlay */}
@@ -227,30 +221,31 @@ export default function Navigation({
         <div
           className={[
             "absolute inset-0",
-            "bg-primary/95 backdrop-blur-2xl",
-            "transition-all duration-300 ease-out",
-            menuOpen
-              ? "translate-y-0 opacity-100"
-              : "-translate-y-2 opacity-95",
+            "bg-primary/90 backdrop-blur-2xl",
+            "transition-transform duration-300",
+            menuOpen ? "translate-y-0" : "-translate-y-2",
           ].join(" ")}
         >
-          <div className="flex h-full w-full flex-col items-center justify-center gap-8 px-6">
+          <div className="flex h-full w-full flex-col items-center justify-center gap-6 px-6">
             <button
               type="button"
-              className="absolute right-6 top-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15 text-white/90 transition-all duration-200 hover:bg-white/15 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+              className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10 text-[var(--primary-foreground)]/90 transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
               aria-label="Close menu"
               onClick={() => setMenuOpen(false)}
             >
-              <X className="h-6 w-6" aria-hidden="true" />
+              <Menu
+                className="h-5 w-5 rotate-90 transition-transform"
+                aria-hidden="true"
+              />
             </button>
 
-            <div className="mb-8 flex items-center gap-3">
-              <span className="font-heading text-3xl font-bold bg-gradient-to-r from-[#c084fc] via-[#8b5cf6] to-[#7c3aed] bg-clip-text text-transparent drop-shadow-sm">
+            <div className="mb-10 flex items-center gap-3">
+              <span className="font-heading text-2xl bg-gradient-to-r from-[#c084fc] via-[#8b5cf6] to-[#7c3aed] bg-clip-text text-transparent">
                 {logoLabel}
               </span>
             </div>
 
-            <ul className="w-full max-w-md space-y-3">
+            <ul className="w-full max-w-sm space-y-2">
               {links.map((link) => {
                 const isActive = activeId === link.id;
                 return (
@@ -262,25 +257,23 @@ export default function Navigation({
                         handleNavigate(link.id);
                       }}
                       className={[
-                        "group flex w-full items-center justify-between rounded-2xl px-6 py-4 text-lg font-semibold transition-all duration-200",
+                        "group flex w-full items-center justify-between rounded-2xl px-5 py-4 text-lg font-medium transition",
                         "focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]",
                         isActive
-                          ? "bg-white/15 text-[var(--accent)] shadow-[0_0_20px_rgba(139,92,246,0.3)] scale-[1.02]"
-                          : "bg-white/8 text-white/90 hover:bg-white/15 hover:text-[var(--accent)] hover:scale-[1.02]",
+                          ? "bg-white/10 text-[var(--accent)]"
+                          : "bg-white/5 text-[var(--primary-foreground)]/90 hover:bg-white/10 hover:text-[var(--accent)]",
                       ].join(" ")}
                       aria-current={isActive ? "page" : undefined}
                     >
-                      <span className="min-w-0 truncate tracking-tight">
-                        {link.label}
-                      </span>
-                      <span className="pointer-events-none ml-4 h-2.5 w-2.5 rounded-full bg-[var(--accent)]/70 group-hover:bg-[var(--accent)] transition-all duration-200" />
+                      <span className="min-w-0 truncate">{link.label}</span>
+                      <span className="pointer-events-none ml-4 h-2 w-2 rounded-full bg-[var(--accent)]/70 group-hover:bg-[var(--accent)] transition" />
                     </a>
                   </li>
                 );
               })}
             </ul>
 
-            <p className="mt-12 text-center text-sm text-white/60 px-6 font-medium">
+            <p className="mt-10 text-center text-sm text-[var(--primary-foreground)]/70 px-6">
               Navigate through sections. Smooth scroll enabled.
             </p>
           </div>

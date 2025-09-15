@@ -46,10 +46,10 @@ const FloatingCard = ({
       viewport={{ once: true, margin: "0px 0px -20% 0px" }}
       transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1], delay }}
       className={cn(
-        "group relative w-full max-w-xs rounded-2xl border border-white/15 bg-white/8 p-5 backdrop-blur-md",
-        "shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_12px_40px_rgba(0,0,0,0.4)]",
-        "hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_24px_80px_rgba(0,0,0,0.5)]",
-        "transition-all duration-300 hover:scale-105 hover:border-white/25",
+        "group relative w-full max-w-xs rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md",
+        "shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_8px_30px_rgba(0,0,0,0.35)]",
+        "hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_20px_60px_rgba(0,0,0,0.45)]",
+        "transition-shadow",
         className
       )}
       aria-label={`${title} ${subtitle}`}
@@ -58,28 +58,26 @@ const FloatingCard = ({
       <div className="flex items-center gap-3">
         <div
           className={cn(
-            "relative grid h-12 w-12 place-items-center rounded-xl",
-            "bg-gradient-to-br from-[#5b7cfa]/40 to-[#8a4bff]/40",
-            "ring-1 ring-white/15 shadow-[0_4px_20px_rgba(139,92,246,0.3)]"
+            "relative grid h-10 w-10 place-items-center rounded-xl",
+            "bg-gradient-to-br from-[#5b7cfa]/30 to-[#8a4bff]/30",
+            "ring-1 ring-white/10"
           )}
           aria-hidden="true"
         >
-          <Icon className="h-6 w-6 text-white/95" aria-hidden="true" />
+          <Icon className="h-5 w-5 text-white/90" aria-hidden="true" />
           <div
-            className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-all duration-300 group-hover:opacity-100"
+            className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity group-hover:opacity-100"
             style={{
               boxShadow:
-                "0 0 30px 8px rgba(91,124,250,0.35), 0 0 50px 15px rgba(138,75,255,0.25)",
+                "0 0 24px 6px rgba(91,124,250,0.25), 0 0 36px 10px rgba(138,75,255,0.2)",
             }}
           />
         </div>
         <div className="min-w-0">
-          <p className="truncate text-sm font-bold text-white tracking-tight">
+          <p className="truncate text-sm font-semibold text-primary-foreground">
             {title}
           </p>
-          <p className="truncate text-xs text-white/75 font-medium">
-            {subtitle}
-          </p>
+          <p className="truncate text-xs text-white/70">{subtitle}</p>
         </div>
       </div>
     </motion.div>
@@ -180,13 +178,13 @@ export default function HeroSection({
         />
       </div>
 
-      <div className="relative mx-auto flex h-full w-full max-w-7xl flex-col items-center justify-center gap-10 px-6 py-32 text-center sm:gap-12 z-10">
+      <div className="relative mx-auto flex h-full w-full max-w-7xl flex-col items-center justify-center gap-8 px-6 py-28 text-center sm:gap-10 z-10">
         {/* Tagline */}
         <motion.h1
           className={cn(
             "mx-auto max-w-4xl break-words",
-            "md:max-w-5xl lg:max-w-6xl",
-            "text-4xl leading-[1.1] sm:text-5xl sm:leading-[1.08] md:text-6xl md:leading-[1.05] lg:text-7xl lg:leading-[1.02]",
+            "md:max-w-5xl",
+            "text-3xl leading-tight sm:text-5xl sm:leading-tight md:text-6xl md:leading-[1.05]",
             "font-extrabold tracking-tight text-primary-foreground"
           )}
           initial="hidden"
@@ -226,8 +224,7 @@ export default function HeroSection({
         <motion.p
           className={cn(
             "mx-auto max-w-2xl text-balance",
-            "text-base leading-relaxed text-white/85 sm:text-lg md:text-xl lg:text-xl",
-            "font-medium tracking-wide"
+            "text-sm leading-relaxed text-white/80 sm:text-base md:text-lg"
           )}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -245,7 +242,7 @@ export default function HeroSection({
 
         {/* CTAs */}
         <motion.div
-          className="flex flex-wrap items-center justify-center gap-6"
+          className="flex flex-wrap items-center justify-center gap-4"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px 0px -10% 0px" }}
@@ -259,25 +256,22 @@ export default function HeroSection({
         >
           <Button
             asChild
-            size="lg"
             className={cn(
-              "relative h-14 px-8 text-base font-semibold tracking-tight",
-              "bg-white text-black hover:bg-white/95",
-              "shadow-[0_8px_30px_rgba(0,0,0,0.12)]",
-              "transition-all duration-300 will-change-transform",
-              "hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(0,0,0,0.2)]",
-              "active:translate-y-0 active:shadow-[0_4px_20px_rgba(0,0,0,0.15)]",
-              "border-0 rounded-xl"
+              "relative",
+              "bg-white text-black hover:bg-white/90",
+              "shadow-[0_0_0_0_rgba(0,0,0,0)]",
+              "transition-transform duration-200 will-change-transform",
+              "hover:-translate-y-0.5 active:translate-y-0"
             )}
           >
             <Link href="#projects" aria-label="Explore our work section">
               <span className="relative z-10">Explore Our Work</span>
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 -z-10 rounded-xl opacity-60 transition-opacity duration-300 hover:opacity-80"
+                className="pointer-events-none absolute inset-0 -z-10 rounded-md"
                 style={{
                   boxShadow:
-                    "0 0 30px 8px rgba(139,92,246,0.4), 0 0 60px 16px rgba(124,58,237,0.3)",
+                    "0 0 24px 6px rgba(139,92,246,0.35), 0 0 36px 12px rgba(124,58,237,0.28)",
                 }}
               />
             </Link>
@@ -286,25 +280,21 @@ export default function HeroSection({
           <Button
             asChild
             variant="secondary"
-            size="lg"
             className={cn(
-              "relative h-14 px-8 text-base font-semibold tracking-tight",
-              "border border-white/25 bg-white/10 text-white hover:bg-white/20 hover:border-white/35",
-              "backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.08)]",
-              "transition-all duration-300 will-change-transform",
-              "hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(0,0,0,0.15)]",
-              "active:translate-y-0 active:shadow-[0_4px_20px_rgba(0,0,0,0.1)]",
-              "rounded-xl"
+              "relative border border-white/20 bg-white/10 text-primary-foreground hover:bg-white/20",
+              "backdrop-blur-md",
+              "transition-transform duration-200 will-change-transform",
+              "hover:-translate-y-0.5 active:translate-y-0"
             )}
           >
             <Link href="#contact" aria-label="Start a project with Inexia">
               <span className="relative z-10">Start a Project</span>
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 -z-10 rounded-xl opacity-40 transition-opacity duration-300 hover:opacity-60"
+                className="pointer-events-none absolute inset-0 -z-10 rounded-md"
                 style={{
                   boxShadow:
-                    "0 0 25px 6px rgba(124,58,237,0.25), inset 0 0 1px 1px rgba(255,255,255,0.08)",
+                    "0 0 22px 8px rgba(124,58,237,0.22), inset 0 0 1px 1px rgba(255,255,255,0.05)",
                 }}
               />
             </Link>
@@ -364,30 +354,24 @@ export default function HeroSection({
 
         {/* Center badge row */}
         <motion.div
-          className="mt-4 flex flex-wrap items-center justify-center gap-4 text-white/80"
+          className="mt-2 flex items-center gap-3 text-white/70"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px 0px -15% 0px" }}
           transition={{ duration: 0.6, delay: 0.14 }}
           aria-label="Technology capabilities"
         >
-          <div className="flex items-center gap-2.5 rounded-full border border-white/15 bg-white/8 px-4 py-2 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:bg-white/12 hover:border-white/25 transition-all duration-200">
-            <Framer className="h-4 w-4 text-white/90" aria-hidden="true" />
-            <span className="text-xs font-semibold tracking-wide">
-              Smooth Motion
-            </span>
+          <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur">
+            <Framer className="h-4 w-4 text-white/80" aria-hidden="true" />
+            <span className="text-xs">Smooth Motion</span>
           </div>
-          <div className="flex items-center gap-2.5 rounded-full border border-white/15 bg-white/8 px-4 py-2 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:bg-white/12 hover:border-white/25 transition-all duration-200">
-            <Scale3d className="h-4 w-4 text-white/90" aria-hidden="true" />
-            <span className="text-xs font-semibold tracking-wide">
-              Spatial Presence
-            </span>
+          <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur">
+            <Scale3d className="h-4 w-4 text-white/80" aria-hidden="true" />
+            <span className="text-xs">Spatial Presence</span>
           </div>
-          <div className="flex items-center gap-2.5 rounded-full border border-white/15 bg-white/8 px-4 py-2 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:bg-white/12 hover:border-white/25 transition-all duration-200">
-            <Section className="h-4 w-4 text-white/90" aria-hidden="true" />
-            <span className="text-xs font-semibold tracking-wide">
-              Multi-Platform
-            </span>
+          <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur">
+            <Section className="h-4 w-4 text-white/80" aria-hidden="true" />
+            <span className="text-xs">Multi-Platform</span>
           </div>
         </motion.div>
       </div>
